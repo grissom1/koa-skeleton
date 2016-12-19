@@ -59,11 +59,13 @@ router.get('/test', async (ctx) => {
 router.get('/', async (ctx) => {
   const messages = await db.getRecentMessages()
   messages.forEach(pre.presentMessage)
-  await ctx.render('homepage', {
-    ctx,
-    messages,
-    recaptchaSitekey: config.RECAPTCHA_SITEKEY
-  })
+  await ctx.render('index' 
+  //, {
+  //   ctx,
+  //   messages,
+  //   recaptchaSitekey: config.RECAPTCHA_SITEKEY
+  // }
+)
 })
 
 // //////////////////////////////////////////////////////////
