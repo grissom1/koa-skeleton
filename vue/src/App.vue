@@ -2,7 +2,6 @@
   <div id="app">
     <img src="./assets/logo.png">
     <hello></hello>
-    <frontpage></frontpage>
   </div>
 </template>
 

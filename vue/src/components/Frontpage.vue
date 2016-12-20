@@ -7,6 +7,7 @@
 
 <script>
 import { Actionsheet } from 'mint-ui'
+import { MessageBox } from 'mint-ui'
 
 export default {
   components:{
@@ -14,7 +15,7 @@ export default {
   },
   data () {
     return {
-      sheetVisible: false,
+      sheetVisible: true,
       actions: [
         {name: "test1", method: this.action},
         {name: "test2", method: this.action}
@@ -24,6 +25,7 @@ export default {
     methods: {
       action (val) {
         console.log("val");
+        MessageBox('title', 'success');
       }
     }
 }

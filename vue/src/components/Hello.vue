@@ -17,18 +17,50 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <ul>
+      <li>
+        <mt-button type=primary @click.native="handleClick">Action Sheet</mt-button>
+      </li>
+    </ul>
+    <actionsheet
+      :actions="actions"
+      v-model="sheetVisible">
+    </actionsheet>
   </div>
 </template>
 
 <script>
+
+import { Button as myButton } from 'mint-ui';
+import { Actionsheet } from 'mint-ui';
+import { MessageBox } from 'mint-ui';
+
 export default {
   name: 'hello',
+  components: {
+    Actionsheet,
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      sheetVisible: false,
+      actions: [
+        {name: "test1", method: this.action},
+        {name: "test2", method: this.action}
+      ]
+    }
+  },
+  methods: {
+    handleClick () {
+      this.sheetVisible = !this.sheetVisible;
+    },
+    action (val) {
+      console.log("val");
+      MessageBox('title', 'success');
     }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
