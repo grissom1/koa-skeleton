@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div>
+    <!-- <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -16,37 +16,32 @@
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-    <ul>
-      <li>
-        <mt-button type=primary @click.native="handleClick">Action Sheet</mt-button>
-      </li>
-    </ul>
-    <actionsheet
+    </ul> -->
+        <mt-button type="primary" @click.native="handleClick" size="large">Action Sheet</mt-button>
+    <mt-actionsheet
       :actions="actions"
       v-model="sheetVisible">
-    </actionsheet>
+    </mt-actionsheet>
   </div>
 </template>
 
 <script>
 
-import { Button as myButton } from 'mint-ui';
-import { Actionsheet } from 'mint-ui';
 import { MessageBox } from 'mint-ui';
+import { Indicator } from 'mint-ui';
 
 export default {
   name: 'hello',
-  components: {
-    Actionsheet,
-  },
+  // components: {
+  //   Actionsheet,
+  // },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       sheetVisible: false,
       actions: [
         {name: "test1", method: this.action},
-        {name: "test2", method: this.action}
+        {name: "test2", method: this.indicate}
       ]
     }
   },
@@ -55,8 +50,11 @@ export default {
       this.sheetVisible = !this.sheetVisible;
     },
     action (val) {
-      console.log("val");
       MessageBox('title', 'success');
+    },
+    indicate () {
+      Indicator.open("lalala");
+      setTimeout(()=>{Indicator.close()},1000);
     }
   }
 }
