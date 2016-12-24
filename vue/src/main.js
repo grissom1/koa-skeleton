@@ -9,6 +9,9 @@ import { Button } from 'mint-ui';
 import { Actionsheet } from 'mint-ui';
 import { Tabbar, TabItem } from 'mint-ui';
 import { TabContainer, TabContainerItem } from 'mint-ui';
+import { CellSwipe } from 'mint-ui';
+
+Vue.component(CellSwipe.name, CellSwipe);
 
 Vue.component(TabContainer.name, TabContainer);
 Vue.component(TabContainerItem.name, TabContainerItem);
